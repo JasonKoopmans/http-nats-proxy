@@ -1,0 +1,18 @@
+kind: pipeline
+type: docker
+name: default
+
+platform:
+    os: linux
+    arch: amd64
+
+steps:
+- name: docker  
+  image: plugins/docker
+  settings:
+    context: src
+    dockerfile: src/Dockerfile
+    repo: registry.koopmans.org/http-nats-proxy
+    registry: http://registry.koopmans.org
+    insecure: true
+    tags: latest
